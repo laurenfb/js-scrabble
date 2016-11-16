@@ -1,5 +1,6 @@
 var CONSTANTS = require('./scrabble_constants');
 
+// constructor!
 var Scrabble = function() {};
 
 // this is a thing to copy from
