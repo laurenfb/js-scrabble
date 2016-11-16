@@ -37,7 +37,7 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
       highestWordScore = scoreArray[i];
       highestWord = arrayOfWords[i];
     }
-    // if the scores are tied, check to see if one of the words is longer than 7 letters. if neither is, continue on as if nothing happened (this will effectively choose the first tied score to be the winner) // 
+    // if the scores are tied, check to see if one of the words is longer than 7 letters. if neither is, continue on as if nothing happened (this will effectively choose the first tied score to be the winner) //
     else if (scoreArray[i] == highestWordScore) {
       if (highestWord.length < 7 && arrayOfWords[i].length >= 7) {
         highestWordScore = scoreArray[i]
@@ -52,23 +52,23 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
 // new scrabble
 var scrabble = new Scrabble()
 
-// testing for score fx// regular word
-console.log("Score for 'word' is: " + scrabble.score("word"))
-// bingo word (7+ letters)
-console.log("Score for 'foooooooblah' is: " + scrabble.score("foooooooblah"))
-
-// testing highestScoreFrom fx
-console.log("hiii: " + scrabble.score("hiii") + ", bloop: " + scrabble.score("bloop") + ", cat: " + scrabble.score("cat") )
-console.log("highest score word is: " + scrabble.highestScoreFrom(["hiii", "bloop", "cat"]))
-
-// test that in the case of an equal score, the word that is 7 letters or greater should be the winner
-console.log("zzzzzz: " + scrabble.score("zzzzzz") + ", iiiiiif: " + scrabble.score("iiiiiif"))
-console.log("highest score word is: " + scrabble.highestScoreFrom(["zzzzzz", "iiiiiif"]))
-
-// test that in the case of an equal score where none is 7 letters, the first should be the winner
-console.log("aaaaaa: " + scrabble.score("aaaaaa") + ", iiiiii: " + scrabble.score("iiiiii"))
-console.log("highest score word is: " + scrabble.highestScoreFrom(["aaaaaa", "iiiiii"]))
-
+// // testing for score fx// regular word
+// console.log("Score for 'word' is: " + scrabble.score("word"))
+// // bingo word (7+ letters)
+// console.log("Score for 'foooooooblah' is: " + scrabble.score("foooooooblah"))
+//
+// // testing highestScoreFrom fx
+// console.log("hiii: " + scrabble.score("hiii") + ", bloop: " + scrabble.score("bloop") + ", cat: " + scrabble.score("cat") )
+// console.log("highest score word is: " + scrabble.highestScoreFrom(["hiii", "bloop", "cat"]))
+//
+// // test that in the case of an equal score, the word that is 7 letters or greater should be the winner
+// console.log("zzzzzz: " + scrabble.score("zzzzzz") + ", iiiiiif: " + scrabble.score("iiiiiif"))
+// console.log("highest score word is: " + scrabble.highestScoreFrom(["zzzzzz", "iiiiiif"]))
+//
+// // test that in the case of an equal score where none is 7 letters, the first should be the winner
+// console.log("aaaaaa: " + scrabble.score("aaaaaa") + ", iiiiii: " + scrabble.score("iiiiii"))
+// console.log("highest score word is: " + scrabble.highestScoreFrom(["aaaaaa", "iiiiii"]))
+//
 
 // export this file as a module
 module.exports = Scrabble;
