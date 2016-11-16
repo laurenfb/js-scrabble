@@ -35,7 +35,9 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
     if (scoreArray[i] > highestWordScore) {
       highestWordScore = scoreArray[i];
       highestWord = arrayOfWords[i];
-    } else if (scoreArray[i] == highestWordScore) {
+    }
+    // if the scores are tied, check to see if one of the words is longer than 7 letters. if neither is, continue on as if nothing happened (this will effectively choose the first tied score to be the winner) // 
+    else if (scoreArray[i] == highestWordScore) {
       if (highestWord.length < 7 && arrayOfWords[i].length >= 7) {
         highestWordScore = scoreArray[i]
         highestWord = arrayOfWords[i];
@@ -64,7 +66,7 @@ console.log("highest score word is: " + scrabble.highestScoreFrom(["zzzzzz", "ii
 
 // test that in the case of an equal score where none is 7 letters, the first should be the winner
 console.log("aaaaaa: " + scrabble.score("aaaaaa") + ", iiiiii: " + scrabble.score("iiiiii"))
-console.log("highest score word is: " + scrabble.highestScoreFrom(["aaaaaa", "iiiiii"])) 
+console.log("highest score word is: " + scrabble.highestScoreFrom(["aaaaaa", "iiiiii"]))
 
 
 // export this file as a module
