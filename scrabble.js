@@ -4,12 +4,12 @@ var CONSTANTS = require('./scrabble_constants');
 var Scrabble = function() {};
 
 // this is a thing to copy from
-Scrabble.prototype.helloWorld = function() {
+Scrabble.helloWorld = function() {
   return 'hello world!';
 };
 
 // add score method to Scrabble
-Scrabble.prototype.score = function(word){
+Scrabble.score = function(word){
   word = word.toUpperCase();
   var total = 0;
   for (let char of word) {
@@ -21,14 +21,14 @@ Scrabble.prototype.score = function(word){
   return total;
 }
 
-Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
+Scrabble.highestScoreFrom = function(arrayOfWords) {
   var highestWord = null;
   var highestWordScore = null;
   var scoreArray = [];
 
 // iterate through words, score them all
   for (let word of arrayOfWords) {
-    scoreArray.push(Scrabble.prototype.score(word));
+    scoreArray.push(Scrabble.score(word));
   };
 
 // iterate through scores, find best based on conditional
@@ -49,26 +49,24 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
   return highestWord
 };
 
-// new scrabble
-var scrabble = new Scrabble()
-
+// console.log(Scrabble.helloWorld())
 // // testing for score fx// regular word
-// console.log("Score for 'word' is: " + scrabble.score("word"))
+// console.log("Score for 'word' is: " + Scrabble.score("word"))
 // // bingo word (7+ letters)
-// console.log("Score for 'foooooooblah' is: " + scrabble.score("foooooooblah"))
+// console.log("Score for 'foooooooblah' is: " + Scrabble.score("foooooooblah"))
 //
 // // testing highestScoreFrom fx
-// console.log("hiii: " + scrabble.score("hiii") + ", bloop: " + scrabble.score("bloop") + ", cat: " + scrabble.score("cat") )
-// console.log("highest score word is: " + scrabble.highestScoreFrom(["hiii", "bloop", "cat"]))
+// console.log("hiii: " + Scrabble.score("hiii") + ", bloop: " + Scrabble.score("bloop") + ", cat: " + Scrabble.score("cat") )
+// console.log("highest score word is: " + Scrabble.highestScoreFrom(["hiii", "bloop", "cat"]))
 //
 // // test that in the case of an equal score, the word that is 7 letters or greater should be the winner
-// console.log("zzzzzz: " + scrabble.score("zzzzzz") + ", iiiiiif: " + scrabble.score("iiiiiif"))
-// console.log("highest score word is: " + scrabble.highestScoreFrom(["zzzzzz", "iiiiiif"]))
+// console.log("zzzzzz: " + Scrabble.score("zzzzzz") + ", iiiiiif: " + Scrabble.score("iiiiiif"))
+// console.log("highest score word is: " + Scrabble.highestScoreFrom(["zzzzzz", "iiiiiif"]))
 //
 // // test that in the case of an equal score where none is 7 letters, the first should be the winner
-// console.log("aaaaaa: " + scrabble.score("aaaaaa") + ", iiiiii: " + scrabble.score("iiiiii"))
-// console.log("highest score word is: " + scrabble.highestScoreFrom(["aaaaaa", "iiiiii"]))
+// console.log("aaaaaa: " + Scrabble.score("aaaaaa") + ", iiiiii: " + Scrabble.score("iiiiii"))
+// console.log("highest score word is: " + Scrabble.highestScoreFrom(["aaaaaa", "iiiiii"]))
+// //
 //
-
 // export this file as a module
 module.exports = Scrabble;
