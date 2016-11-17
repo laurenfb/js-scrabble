@@ -10,15 +10,20 @@ Scrabble.helloWorld = function() {
 
 // add score method to Scrabble
 Scrabble.score = function(word){
-  word = word.toUpperCase();
-  var total = 0;
-  for (let char of word) {
-    total += CONSTANTS.SCORES[char]
+  if (typeof(word) == 'string') {
+    word = word.toUpperCase();
+    var total = 0;
+    for (let char of word) {
+      total += CONSTANTS.SCORES[char]
+    };
+    if (word.length >= 7) {
+      total += 50
+    };
+    return total;
+  } else {
+    return false;
   };
-  if (word.length >= 7) {
-    total += 50
-  };
-  return total;
+
 }
 
 Scrabble.highestScoreFrom = function(arrayOfWords) {
