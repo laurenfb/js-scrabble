@@ -10,15 +10,22 @@ Scrabble.helloWorld = function() {
 
 // add score method to Scrabble
 Scrabble.score = function(word){
-  word = word.toUpperCase();
-  var total = 0;
-  for (let char of word) {
-    total += CONSTANTS.SCORES[char]
+
+  // if the word is a string and it does not contain any non-letter characters, then score it. else, return false.
+  if (typeof(word) == 'string' && Scrabble.checkInput(word)) {
+    word = word.toUpperCase();
+    var total = 0;
+    for (let char of word) {
+      total += CONSTANTS.SCORES[char]
+    };
+    if (word.length >= 7) {
+      total += 50
+    };
+    return total;
+  } else {
+    return false;
   };
-  if (word.length >= 7) {
-    total += 50
-  };
-  return total;
+
 }
 
 Scrabble.highestScoreFrom = function(arrayOfWords) {
@@ -28,7 +35,13 @@ Scrabble.highestScoreFrom = function(arrayOfWords) {
 
 // iterate through words, score them all
   for (let word of arrayOfWords) {
-    scoreArray.push(Scrabble.score(word));
+    // if the words aren't strings, fuhgeddaboutit
+    if (typeof(word) == 'string') {
+      scoreArray.push(Scrabble.score(word));
+    } else {
+      // turns out we need this so that scoreArray.length == arrayOfWords.length
+      scoreArray.push(false);
+    };
   };
 
 // iterate through scores, find best based on conditional
@@ -48,8 +61,21 @@ Scrabble.highestScoreFrom = function(arrayOfWords) {
     };
 
   };
-  return highestWord
+  if (highestWord) {
+    return highestWord;
+  } else {
+    return "There is no highest scoring word."
+  };
+
 };
+
+Scrabble.checkInput = function(word) {
+  if (word == word.match(/^[a-zA-Z]+$/)) {
+    return word
+  } else {
+    return false
+  }
+}
 
 // hashtag test-driven development. check out /spec folder to see testing on this module.
 // export this file as a module
